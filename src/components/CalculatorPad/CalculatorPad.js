@@ -4,12 +4,12 @@ import CalculatorButton from '../CalculatorButton/CalculatorButton.js';
 import "./CalculatorPad.css";
 
 
-function CalculatorPad() {
+function CalculatorPad({func}) {
 
     const buttonsArr = [
         ["7" ,"8" ,"9","÷"],
         ["4" ,"5" ,"6","X"],
-        ["3" ,"2" ,"1","-"],
+        ["1" ,"2" ,"3","-"],
         ["0" ,"=" ,"C","+"],
       ];
 
@@ -21,7 +21,7 @@ function CalculatorPad() {
                     {
                         row.map((buttonLabel ,buttonIndex)=>(
                             <Col className='pad' xs={3} key={`${row}/${buttonIndex}`}>
-                                <CalculatorButton value={buttonLabel}/>        
+                                <CalculatorButton value={buttonLabel} func={func}/>        
                             </Col>
                         ))
                     }

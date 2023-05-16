@@ -3,21 +3,16 @@ import "./CalculatorButton.css";
 import { Button } from "react-bootstrap";
 
 
-function CalculatorButton({value}) {
+function CalculatorButton({value ,func}) {
 
     const buttonColorChooser = () =>{
-      const num = parseInt(value);
       
-      if(num || value === "0"){
-        return ""
-      }else{
-        
-        if(value === "="){
-          return "green";
-        }else{
-          return "red";
-        }
-
+      if(parseInt(value) || value === "0"){
+        return "";
+      }
+      else{       
+        if(value === "="){return "green";}
+        else{return "red";}
       }
 
     };
@@ -27,7 +22,7 @@ function CalculatorButton({value}) {
 
 
   return (
-        <Button className='pad' style={buttonStyle}>{value}</Button>
+        <Button className='pad' onClick={()=>{func(value)}} style={buttonStyle}>{value}</Button>
   )
 }
 

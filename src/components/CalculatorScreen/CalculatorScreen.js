@@ -1,15 +1,11 @@
-import React, { useState } from 'react';
 import {Row} from "react-bootstrap";
 import "./CalculatorScreen.css";
 
-function CalculatorScreen() {
-
-    const [screenValue ,setScreenValue] = useState("0")
-
+function CalculatorScreen({value}) {
 
   return (
     <Row className='CalculatorScreen'>
-        <label className='ScreenText'>{screenValue}</label>
+        <label className='ScreenText'>{value}</label>
     </Row>
   )
 }
