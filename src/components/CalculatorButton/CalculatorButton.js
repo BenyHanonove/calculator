@@ -4,8 +4,30 @@ import { Button } from "react-bootstrap";
 
 
 function CalculatorButton({value}) {
+
+    const buttonColorChooser = () =>{
+      const num = parseInt(value);
+      
+      if(num || value === "0"){
+        return ""
+      }else{
+        
+        if(value === "="){
+          return "green";
+        }else{
+          return "red";
+        }
+
+      }
+
+    };
+
+
+    const buttonStyle = {backgroundColor: buttonColorChooser()}
+
+
   return (
-        <Button>{value}</Button>
+        <Button className='pad' style={buttonStyle}>{value}</Button>
   )
 }
 

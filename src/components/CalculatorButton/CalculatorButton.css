@@ -1,3 +1,10 @@
-.buttonText{
-    font-size: 30px;
+.pad.btn.btn-primary{
+    height: 80%;
+    width: 65%;
+    margin-left: 17.5%;
+    margin-top: 10%;
+    text-align: center;
+    border-color: aliceblue;
+    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1);
 }
+
