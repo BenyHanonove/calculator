@@ -4,7 +4,7 @@ import "./CalculatorScreen.css";
 
 function CalculatorScreen() {
 
-    const [screenValue ,setScreenValue] = useState("123")
+    const [screenValue ,setScreenValue] = useState("0")
 
 
   return (
