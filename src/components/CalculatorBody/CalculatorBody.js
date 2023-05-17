@@ -11,12 +11,10 @@ function CalculatorBody() {
   const [screenValue ,setScreenValue] = useState("0");
   const [operator ,setOperator] = useState("");
   const [firstNum ,setFirstNum] = useState(0);
-  const [secondNum ,setSecondNum] = useState(0);
 
   
   const clickHandler = (input)=>{
     
-
     //HANDELS NUMBER INPUT
     //CHECK IF THE INPUT IS NUMBER 
     if(parseInt(input) || input === "0"){
@@ -37,50 +35,63 @@ function CalculatorBody() {
         return;
       }
 
-      if(operator || input === "="){
-        setSecondNum(parseFloat(screenValue));
-        artimatiMethoeds();
-      }else{
-        setFirstNum(parseFloat(screenValue));
+
+      if(!operator && input !== "="){
         setOperator(input);
-        setScreenValue("0")
+        setFirstNum(parseFloat(screenValue));
+        setScreenValue("0");
+        return;
+      };
+
+      if(input === "="){
+        artimatiMethoeds(parseFloat(screenValue));
       }
+
     }
+    
 
   };
 
-  const artimatiMethoeds = ()=>{
+  const artimatiMethoeds = (secondNum)=>{
+    
+    console.log(firstNum,operator,secondNum);
+
+    let value ;
+
     switch(operator){
-      
+
+      default:
+        break;
+
       case "+":
-        setScreenValue((firstNum + secondNum).toString());
-        setFirstNum(firstNum + secondNum);
-        setSecondNum(0)
+        value = firstNum + secondNum;
+        setScreenValue(value.toString());
         setOperator("");
+        setFirstNum(value);
         break;
 
       case "-":
-        setScreenValue((firstNum - secondNum).toString());
-        setFirstNum(firstNum - secondNum);
-        setSecondNum(0)
+        value = firstNum - secondNum;
+        setScreenValue(value.toString());
         setOperator("");
+        setFirstNum(value);
         break;
 
       case "X":
-        setScreenValue((firstNum * secondNum).toString());
-        setFirstNum(firstNum * secondNum);
-        setSecondNum(0)
+        value = firstNum * secondNum;
+        setScreenValue(value.toString());
         setOperator("");
+        setFirstNum(value);
         break;
 
       case "÷":
-        setScreenValue((firstNum / secondNum).toString());
-        setFirstNum(firstNum / secondNum);
-        setSecondNum(0)
+        value = firstNum / secondNum;
+        setScreenValue(value.toString());
         setOperator("");
+        setFirstNum(value);
         break;
     }
-  };
+    };
 
 
   return (
